@@ -1,7 +1,10 @@
 "MyResume By Zoelva"
 Merupakan website personal yang saya buat untuk mengelola ringkasan/resume secara otomatis hanya dengan menginputkan data seperti Portfolio, Sertifikat, atau Seminar.
 
-## Sistem yang saya gunakan
+## Fitur sementara
+- Menambahkan Portfolio
+
+## Sistem yang digunakan
 - Codeigniter 3
 - SB Admin 2
 - PHP 7.4

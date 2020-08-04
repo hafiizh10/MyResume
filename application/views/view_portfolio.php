@@ -2,6 +2,14 @@
 <div class="container-fluid">
 
     <!-- DataTales Example -->
+    <?php if ($this->session->flashdata('flash')) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Portfolio <strong>berhasil!</strong> <?= $this->session->flashdata('flash'); ?>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"><?= ($page['title'] ?? 'Undefined'); ?></h6>
@@ -26,9 +34,9 @@
                                 <td><?= $pf['jenis']; ?></td>
                                 <td><?= $pf['judul']; ?></td>
                                 <td><?= $pf['link']; ?></td>
-                                <td style="width: 15%; text-align: center;">
-                                    <a href="" class="badge badge-pill badge-success">Edit</a>
-                                    <a href="" class="badge badge-pill badge-danger tombol-hapus">Delete</a>
+                                <td style="text-align: center;">
+                                    <a href="<?= base_url(); ?>home/edit/<?= $pf['resume_id'] ?>" class="badge badge-pill badge-success">Edit</a>
+                                    <a href="<?= base_url(); ?>home/hapus/<?= $pf['resume_id'] ?>" class="badge badge-pill badge-danger tombol-hapus">Delete</a>
                                 </td>
                             </tr>
                     </tbody>

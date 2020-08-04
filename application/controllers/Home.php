@@ -113,6 +113,40 @@ class Home extends CI_Controller
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function hapus($id)
+	{
+		$this->Portfolio_model->hapusPortfolio($id);
+		$this->session->set_flashdata('flash', 'Dihapus');
+		redirect('home/view_portfolio');
+	}
+
+	public function edit($id)
+	{
+		$data = [
+			'page' => [
+				'title' => 'Edit Portfolio'
+			],
+			'user' => (array) $this->_user
+		];
+		$data['portfolio'] = $this->Portfolio_model->getPortfolioById($id);
+		$data['jenis'] = ['Certificate', 'Seminar', 'Portfolio'];
+
+		$this->form_validation->set_rules('judul', 'Judul', 'required');
+		$this->form_validation->set_rules('link', 'Link', 'required');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/topbar', $data);
+			$this->load->view('edit', $data);
+			$this->load->view('templates/footer', $data);
+		} else {
+			$this->Portfolio_model->editPortfolio();
+			$this->session->set_flashdata('flash', 'Ditambahkan');
+			redirect('home/view_portfolio');
+		}
+	}
+
 	/**
 	 * Check Session
 	 * 
