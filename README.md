@@ -3,6 +3,7 @@ Merupakan website personal yang saya buat untuk mengelola ringkasan/resume secar
 
 ## Fitur sementara
 - Menambahkan Portfolio
+- Menambahkan Biodata
 
 ## Sistem yang digunakan
 - Codeigniter 3

@@ -49,6 +49,7 @@
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="form-group">
+                            <input type="hidden" class="form-control" name="id" id="id" value="<?= $user['id'] ?>" readonly required>
                             <label for="judul">Judul Portfolio</label>
                             <input type="text" class="form-control" name="judul" id="judul" required>
                             <?= form_error('judul') ?>

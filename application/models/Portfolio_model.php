@@ -15,6 +15,7 @@ class Portfolio_model extends CI_Model
     public function tambahPortfolio()
     {
         $data = [
+            "id" => $this->input->post('id', true),
             "judul" => $this->input->post('judul', true),
             "link" => $this->input->post('link', true),
             "jenis" => $this->input->post('jenis', true),

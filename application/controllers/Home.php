@@ -39,6 +39,7 @@ class Home extends CI_Controller
 		$this->load->model(['Users_model']);
 
 		$this->load->model('Portfolio_model');
+		$this->load->model('Biodata_model');
 		$this->load->library('form_validation');
 
 		// Check session
@@ -113,14 +114,14 @@ class Home extends CI_Controller
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function hapus($id)
+	public function hapus_portfolio($id)
 	{
 		$this->Portfolio_model->hapusPortfolio($id);
 		$this->session->set_flashdata('flash', 'Dihapus');
 		redirect('home/view_portfolio');
 	}
 
-	public function edit($id)
+	public function edit_portfolio($id)
 	{
 		$data = [
 			'page' => [
@@ -138,13 +139,98 @@ class Home extends CI_Controller
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/topbar', $data);
-			$this->load->view('edit', $data);
+			$this->load->view('edit_portfolio', $data);
 			$this->load->view('templates/footer', $data);
 		} else {
 			$this->Portfolio_model->editPortfolio();
 			$this->session->set_flashdata('flash', 'Ditambahkan');
 			redirect('home/view_portfolio');
 		}
+	}
+
+	public function add_biodata()
+	{
+		$data = [
+			'page' => [
+				'title' => 'Tambah Biodata'
+			],
+			'user' => (array) $this->_user
+		];
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('spesialis', 'Spesialis', 'required');
+		$this->form_validation->set_rules('website', 'Website', 'required');
+		$this->form_validation->set_rules('telepon', 'Telepon', 'required|numeric');
+		$this->form_validation->set_rules('asal', 'Asal', 'required');
+		$this->form_validation->set_rules('umur', 'Umur', 'required|numeric');
+		$this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/topbar', $data);
+			$this->load->view('add_biodata', $data);
+			$this->load->view('templates/footer', $data);
+		} else {
+			$this->Biodata_model->tambahBiodata();
+			$this->session->set_flashdata('flash', 'Ditambahkan');
+			redirect('home/add_biodata');
+		}
+	}
+
+	public function view_biodata()
+	{
+		$data = [
+			'page' => [
+				'title' => 'Table Biodata'
+			],
+			'user' => (array) $this->_user
+		];
+		$data['biodata'] = $this->Biodata_model->getAllBiodata();
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('view_biodata', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	public function edit_biodata($id)
+	{
+		$data = [
+			'page' => [
+				'title' => 'Edit Biodata'
+			],
+			'user' => (array) $this->_user
+		];
+		$data['biodata'] = $this->Biodata_model->getBiodataById($id);
+
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('spesialis', 'Spesialis', 'required');
+		$this->form_validation->set_rules('website', 'Website', 'required');
+		$this->form_validation->set_rules('telepon', 'Telepon', 'required|numeric');
+		$this->form_validation->set_rules('asal', 'Asal', 'required');
+		$this->form_validation->set_rules('umur', 'Umur', 'required|numeric');
+		$this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/topbar', $data);
+			$this->load->view('edit_biodata', $data);
+			$this->load->view('templates/footer', $data);
+		} else {
+			$this->Biodata_model->editBiodata();
+			$this->session->set_flashdata('flash', 'Diedit');
+			redirect('home/view_biodata');
+		}
+	}
+
+	public function hapus_biodata($id)
+	{
+		$this->Biodata_model->hapusBiodata($id);
+		$this->session->set_flashdata('flash', 'Dihapus');
+		redirect('home/view_biodata');
 	}
 
 	/**

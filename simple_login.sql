@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2020 at 04:23 PM
+-- Generation Time: Aug 05, 2020 at 08:59 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -24,44 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ci_sessions`
+-- Table structure for table `tb_biodata`
 --
 
-CREATE TABLE `ci_sessions` (
-  `id` varchar(128) NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `data` blob NOT NULL
+CREATE TABLE `tb_biodata` (
+  `biodata_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nama` varchar(250) NOT NULL,
+  `spesialis` varchar(250) NOT NULL,
+  `website` varchar(100) NOT NULL,
+  `telepon` varchar(50) NOT NULL,
+  `asal` varchar(250) NOT NULL,
+  `umur` int(10) NOT NULL,
+  `pekerjaan` varchar(250) NOT NULL,
+  `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ci_sessions`
+-- Dumping data for table `tb_biodata`
 --
 
-INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('17gs5dd6gk05btc0dk3sbd8fj46nhco2', '::1', 1596464217, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436343231373b757365726e616d657c733a383a227a6f656c76613130223b),
-('1gkvu8aog172jhl51sclr123p2pkdsik', '::1', 1596454230, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435343233303b757365726e616d657c733a383a227a6f656c76613130223b),
-('1kglupbbc4jgc84bfr13hptr498b06b9', '::1', 1596464579, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436343532323b757365726e616d657c733a383a227a6f656c76613130223b),
-('21ulr845cp7g4nv1hgptvcm5rn2r4dcr', '::1', 1596456400, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435363430303b757365726e616d657c733a383a227a6f656c76613130223b),
-('4lo6q6m2tl25sc55cnc04mhir9eaefk9', '::1', 1596440399, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363434303337323b),
-('68cf1seh620ighmef1pa580f2v0114p8', '::1', 1596452779, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435323737393b757365726e616d657c733a383a227a6f656c76613130223b),
-('91poqa0csdrd7fsovk5f6iaicjgoua8f', '::1', 1596451823, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435313832333b737563636573735f6d6573736167657c733a32303a22596f752068617665206c6f67676564206f75742e223b5f5f63695f766172737c613a313a7b733a31353a22737563636573735f6d657373616765223b733a333a226f6c64223b7d),
-('9mnh17t605bviaol8eg427q2vir92amv', '::1', 1596452476, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435323437363b),
-('b8gbp4hvoc8g3ned7hkf8dl3ipqqv4qf', '::1', 1596456732, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435363733323b757365726e616d657c733a383a227a6f656c76613130223b737563636573735f6d6573736167657c733a31383a2257656c636f6d652c207a6f656c766131302e223b5f5f63695f766172737c613a313a7b733a31353a22737563636573735f6d657373616765223b733a333a226f6c64223b7d),
-('bfeu3225jeiodcqsd3v3lu9ie2s7p25a', '::1', 1596457040, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435373034303b757365726e616d657c733a383a227a6f656c76613130223b),
-('d2spo0b5ohlq3ik4fvo1hftaq9dljf74', '::1', 1596454895, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435343839353b757365726e616d657c733a383a227a6f656c76613130223b),
-('d92r92g0re4eacsh898ojgmr024v38bn', '::1', 1596455519, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435353531393b757365726e616d657c733a383a227a6f656c76613130223b),
-('eiq2bm4m7frdnp3fluo08mm3h1eichg0', '::1', 1596455208, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435353230383b757365726e616d657c733a383a227a6f656c76613130223b),
-('fp6a6nm0hqf3llh0hfaavo02gav8tnvi', '::1', 1596440372, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363434303337323b),
-('g81bqmftdm9iom28cnkjbb6ijts4s02p', '::1', 1596453450, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435333435303b757365726e616d657c733a383a227a6f656c76613130223b),
-('hhue85051f54ulu309ojhttn60rg6jud', '::1', 1596464522, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436343532323b757365726e616d657c733a383a227a6f656c76613130223b),
-('jsikig8fhkud5jj0i8d08d3sbrn9loa5', '::1', 1596453775, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435333737353b757365726e616d657c733a383a227a6f656c76613130223b),
-('ks5268fdgilonknqrtqfl846u35pbejn', '::1', 1596453112, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435333131323b),
-('p0s066hmbpvfipippb2bmgu08dohgpli', '::1', 1596463851, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436333835313b757365726e616d657c733a383a227a6f656c76613130223b),
-('qjl161gqg45j8o1oiqlnat611tl5lv4o', '::1', 1596454536, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363435343533363b757365726e616d657c733a383a227a6f656c76613130223b),
-('rleqqq805ucsmlk2bgf1ih5dm9dqo33h', '::1', 1596462864, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436323836343b757365726e616d657c733a383a227a6f656c76613130223b),
-('rmorh93ilsoj7u25r4va17dumcujp2od', '::1', 1596463196, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436333139363b757365726e616d657c733a383a227a6f656c76613130223b),
-('ru11akgrj8d8knv3k852k3o7r7gvqifi', '::1', 1596462493, 0x5f5f63695f6c6173745f726567656e65726174657c693a313539363436323439333b757365726e616d657c733a383a227a6f656c76613130223b);
+INSERT INTO `tb_biodata` (`biodata_id`, `id`, `nama`, `spesialis`, `website`, `telepon`, `asal`, `umur`, `pekerjaan`, `deskripsi`) VALUES
+(3, 2, 'Hafiizh Zoelva Khairani', 'Web Developer, Web Designer', 'www.ieabjb.my.id', '082157254820', 'Kota Martapura (Kalimantan Selatan)', 20, 'Mahasiswa', 'Selamat datang di Web Personal saya, di Web ini anda dapat melihat profile, resume, portfolio, dan lain sebagainya tentang saya. Saya hanya seorang Beginner Web Developer yang masih banyak belajar dan juga ikut dalam Organisasi Kemanusiaan yaitu Indonesian Escorting Ambulance.');
 
 -- --------------------------------------------------------
 
@@ -71,6 +55,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 
 CREATE TABLE `tb_portfolio` (
   `resume_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `jenis` enum('Certificate','Seminar','Portfolio') NOT NULL,
   `filter` enum('filter-app','filter-card','filter-web') NOT NULL,
   `judul` varchar(250) NOT NULL,
@@ -81,8 +66,13 @@ CREATE TABLE `tb_portfolio` (
 -- Dumping data for table `tb_portfolio`
 --
 
-INSERT INTO `tb_portfolio` (`resume_id`, `jenis`, `filter`, `judul`, `link`) VALUES
-(17, 'Certificate', 'filter-app', 'Sertifikat TKJ', 'https://drscdn.500px.org/photo/1019611875/m=900/v2?sig=c1162d962f602e9f8e21bd74884a46d2fe62ef592332c770158f0764479897ef');
+INSERT INTO `tb_portfolio` (`resume_id`, `id`, `jenis`, `filter`, `judul`, `link`) VALUES
+(18, 2, 'Certificate', 'filter-app', 'PENDIDIKAN DAN PELATIHAN APLIKASI KOMPUTER TINGKAT DASAR DAN MENENGAH', 'https://drscdn.500px.org/photo/1019611875/m=900/v2?sig=c1162d962f602e9f8e21bd74884a46d2fe62ef592332c770158f0764479897ef'),
+(19, 2, 'Certificate', 'filter-app', 'SERTIFIKAT PELATIHAN HUAWEI', 'https://drscdn.500px.org/photo/1019612703/m=900/v2?sig=9c84539a16993dafccab076e90b2cf58f4d8eddfa328022e27bfb608e2829086'),
+(20, 2, 'Seminar', 'filter-card', 'SEMINAR NGULIK ROBOT DI ERA NEW NORMAL MENUJU RISET MASA DEPAN', 'https://drscdn.500px.org/photo/1019613928/m=900/v2?sig=b12f67d69638237f76eb39105b18753abd21bf26cb85e8cc4136c6f6ceb3ae98'),
+(22, 2, 'Portfolio', 'filter-web', 'PROJEK WEBSITE IEA BANJARBARU AWAL', 'https://drscdn.500px.org/photo/1019615086/m=900/v2?sig=26d27e9820349879eb1aaa690619260af661c9a675e7e43df8e5391ed657d2e6'),
+(23, 2, 'Portfolio', 'filter-web', 'PROJEK WEBSITE IEA BANJARBARU AWAL', 'https://drscdn.500px.org/photo/1019615088/m=900/v2?sig=3050e5d4bf010041e71d6077983c967ce625404618bbd2f45a7ea855fadcbe56'),
+(24, 2, 'Seminar', 'filter-card', 'SEMINAR MEMBANGUN STARTUP DI ERA NEW NORMAL', 'https://drscdn.500px.org/photo/1019614247/m=900/v2?sig=8f90034fe2cf75c051b34d85ec2a95c269089557660ca610d61b985dd07cc7a0');
 
 -- --------------------------------------------------------
 
@@ -104,24 +94,25 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'zoelva10', '$2y$10$yc3zdN5YdWz0Rks9xsDuA.5jKD/6YTxE5if0990Oonv1PIMGxLZI2', NULL, 1596289622, 1596289622);
+(2, 'zoelva10', '$2y$10$yc3zdN5YdWz0Rks9xsDuA.5jKD/6YTxE5if0990Oonv1PIMGxLZI2', 'ad2da69cec1274f6cb1ca9e373de545b', 1596289622, 1596604102);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `ci_sessions`
+-- Indexes for table `tb_biodata`
 --
-ALTER TABLE `ci_sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+ALTER TABLE `tb_biodata`
+  ADD PRIMARY KEY (`biodata_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `tb_portfolio`
 --
 ALTER TABLE `tb_portfolio`
-  ADD PRIMARY KEY (`resume_id`);
+  ADD PRIMARY KEY (`resume_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `users`
@@ -135,10 +126,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `tb_biodata`
+--
+ALTER TABLE `tb_biodata`
+  MODIFY `biodata_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tb_portfolio`
 --
 ALTER TABLE `tb_portfolio`
-  MODIFY `resume_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `resume_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`

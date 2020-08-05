@@ -27,6 +27,16 @@
 					<i class="fas fa-fw fa-file-image"></i>
 					<span>Buka MyResume</span>
 				</a>
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					<i class="fas fa-fw fa-users"></i>
+					<span>Biodata</span>
+				</a>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="<?= site_url('home/add_biodata'); ?>">Tambah Biodata</a>
+						<a class="collapse-item" href="<?= site_url('home/view_biodata'); ?>">Table Biodata</a>
+					</div>
+				</div>
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 					<i class="fas fa-fw fa-address-card"></i>
 					<span>Portfolio</span>
